@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <title>Weather App</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Weather App</h1>
+        <form method="POST">
+            <input type="text" name="city" placeholder="Enter city" required>
+            <button type="submit">Get Weather</button>
+        </form>
+
+        {% if weather %}
+            <div class="weather-info">
+                <h2>{{ weather.city }}</h2>
+                <p>{{ weather.temperature }} &deg;C</p>
+                <p>{{ weather.description }}</p>
+                <img src="https://cdn.dribbble.com/userupload/3788068/file/still-980a091cf6e4090b3ea115bfa9da6da2.png?resize=400x0" alt="Weather icon">
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>
